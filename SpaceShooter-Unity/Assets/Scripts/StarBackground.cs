@@ -1,12 +1,5 @@
 using UnityEngine;
 
-/// PARALLAX UZAY ARKA PLANI
-/// KURULUM:
-/// 1. Main Camera'ya bu scripti ekle
-/// 2. Sahneye birden fazla Quad veya Sprite koy (yildiz gorunumu)
-///    - Stars Layer 1 (hizli), Stars Layer 2 (yavas)
-/// Veya sadece kameranin arka plan rengini siyah yap, hazir!
-
 public class StarBackground : MonoBehaviour
 {
     [SerializeField] private GameObject starPrefab;
@@ -18,9 +11,18 @@ public class StarBackground : MonoBehaviour
     private Transform[] stars;
     private float bottomY;
 
+    // starPrefab yoksa runtime'da basit beyaz nokta yarat
+    private GameObject CreateStarObject()
+    {
+        var go = new GameObject("Star");
+        var sr = go.AddComponent<SpriteRenderer>();
+        sr.sprite = Bullet.MakeCircle(Color.white, 8);
+        sr.sortingOrder = -1;
+        return go;
+    }
+
     private void Start()
     {
-        if (starPrefab == null) return;
         bottomY = -spawnHeight / 2f;
         stars = new Transform[starCount];
         for (int i = 0; i < starCount; i++)
@@ -29,10 +31,19 @@ public class StarBackground : MonoBehaviour
                 Random.Range(-spawnWidth, spawnWidth),
                 Random.Range(-spawnHeight / 2f, spawnHeight / 2f),
                 1f);
-            stars[i] = Instantiate(starPrefab, pos, Quaternion.identity).transform;
-            // Rastgele boyut
-            float s = Random.Range(0.05f, 0.15f);
-            stars[i].localScale = new Vector3(s, s, 1);
+
+            GameObject s = starPrefab != null ? Instantiate(starPrefab, pos, Quaternion.identity)
+                                              : Instantiate(CreateStarObject(), pos, Quaternion.identity);
+            stars[i] = s.transform;
+            stars[i].position = pos;
+
+            // Yildiz sprite'i yoksa olustur
+            var sr = s.GetComponent<SpriteRenderer>();
+            if (sr != null && sr.sprite == null)
+                sr.sprite = Bullet.MakeCircle(Color.white, 8);
+
+            float size = Random.Range(0.05f, 0.15f);
+            stars[i].localScale = new Vector3(size, size, 1f);
         }
     }
 

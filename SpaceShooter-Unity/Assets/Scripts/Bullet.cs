@@ -1,27 +1,22 @@
 using UnityEngine;
 
-/// KURULUM (Bullet Prefab):
-/// 1. 2D Object > Sprites > Circle olustur, kucult (Scale 0.2, 0.2)
-///    - Sari veya mavi renk ver (oyuncu mermisi)
-/// 2. Rigidbody2D ekle (Gravity Scale = 0)
-/// 3. CircleCollider2D ekle, Is Trigger ISARETLI
-/// 4. Bu scripti ekle
-/// 5. Prefab olarak kaydet → 'PlayerBullet' adi
-/// 6. EnemyBullet icin ayni seyi yap, kirmizi renk, tag='EnemyBullet'
-
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 12f;
     [SerializeField] private int damage = 1;
     [SerializeField] private bool isEnemyBullet = false;
 
+    private void Awake()
+    {
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr != null && sr.sprite == null)
+            sr.sprite = isEnemyBullet ? MakeCircle(new Color(1f, 0.3f, 0.3f)) : MakeCircle(Color.yellow);
+    }
+
     private void Start()
     {
-        // Yukari (oyuncu) veya asagi (dusman) git
         float direction = isEnemyBullet ? -1f : 1f;
         GetComponent<Rigidbody2D>().linearVelocity = Vector2.up * speed * direction;
-
-        // 3 saniye sonra yok ol (ekran disi kacan mermiler)
         Destroy(gameObject, 3f);
     }
 
@@ -43,5 +38,20 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public static Sprite MakeCircle(Color color, int size = 32)
+    {
+        var tex = new Texture2D(size, size);
+        tex.filterMode = FilterMode.Bilinear;
+        float c = size / 2f;
+        for (int x = 0; x < size; x++)
+            for (int y = 0; y < size; y++)
+            {
+                float d = Vector2.Distance(new Vector2(x, y), new Vector2(c, c));
+                tex.SetPixel(x, y, d <= c - 1 ? color : Color.clear);
+            }
+        tex.Apply();
+        return Sprite.Create(tex, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), size);
     }
 }
