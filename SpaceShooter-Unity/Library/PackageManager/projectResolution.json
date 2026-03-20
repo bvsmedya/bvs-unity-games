@@ -1,0 +1,67 @@
+{
+  "context": {
+    "projectPath": "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Packages",
+    "unityVersion": "6000.4.0f1"
+  },
+  "inputs": [
+    "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Packages/manifest.json",
+    "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Packages/packages-lock.json",
+    "/Applications/Unity/Hub/Editor/6000.4.0f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/BuiltInPackagesCombined.sha1"
+  ],
+  "outputs": {
+    "com.unity.2d.sprite@1.0.0": {
+      "name": "com.unity.2d.sprite",
+      "displayName": "2D Sprite",
+      "resolvedPath": "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Library/PackageCache/com.unity.2d.sprite@929df5adbb1f",
+      "fingerprint": "929df5adbb1fa0f2e55b55a7cfb69bde65a57b7d",
+      "editorCompatibility": "2019.2.0a1",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.physics2d@1.0.0": {
+      "name": "com.unity.modules.physics2d",
+      "displayName": "Physics 2D",
+      "resolvedPath": "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Library/PackageCache/com.unity.modules.physics2d",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.ui@1.0.0": {
+      "name": "com.unity.modules.ui",
+      "displayName": "UI",
+      "resolvedPath": "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Library/PackageCache/com.unity.modules.ui",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.ugui@2.0.0": {
+      "name": "com.unity.ugui",
+      "displayName": "uGUI",
+      "resolvedPath": "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Library/PackageCache/com.unity.ugui@3dd2fbd8c1f1",
+      "fingerprint": "3dd2fbd8c1f13d2a862db8de94ead6f625454959",
+      "editorCompatibility": "2019.2.0a1",
+      "version": "2.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.textmeshpro@5.0.0": {
+      "name": "com.unity.textmeshpro",
+      "displayName": "TextMeshPro",
+      "resolvedPath": "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Library/PackageCache/com.unity.textmeshpro@53f43edfd2e0",
+      "fingerprint": "53f43edfd2e0bf2438ca6e2038ba12107a181253",
+      "editorCompatibility": "2023.2.0a1",
+      "version": "5.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.modules.imgui@1.0.0": {
+      "name": "com.unity.modules.imgui",
+      "displayName": "IMGUI",
+      "resolvedPath": "/Users/bvs.medya-konak/GitHub/14 - GAME/SpaceShooter-Unity/Library/PackageCache/com.unity.modules.imgui",
+      "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    }
+  }
+}
